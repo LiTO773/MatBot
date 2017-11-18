@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>👻 MatBot</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>MatBot.</h1>
+    <p>Escolhe aqui a solução que precisas</p>
+    <form name="exercicio">
+      <select name="manual">
+        <option value="1">Combinatória e Probabilidades</option>
+        <option value="2">Funções</option>
+        <option value="3">Complexos e Primitivas</option>
+      </select>
+      <input name="pagina" type="number" placeholder="Página" />
+      <input name="exercicio" type="number" placeholder="Exercício + Alínea">
+    </form>
+    <button onclick="getFile()">Buscar</button>
+    <script src="script.js"></script>
+  </body>
+</html>
