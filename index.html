@@ -42,6 +42,7 @@
         if (urlExists(URL)) {
           var logo = document.getElementById('img1');
           logo.src = URL;
+          document.getElementById('img2').src = ''
           document.getElementById('error').innerHTML = '';
         } else if (urlExists(location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png')){
           var logo1 = document.getElementById('img1');
