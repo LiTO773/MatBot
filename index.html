@@ -17,10 +17,11 @@
       <input name="exercicio" id="exercicio" type="number" placeholder="Exercício + Alínea">
     </form>
     <button onclick="getFile()">Buscar</button>
-
+    <br />
     <div>
       <img id="img1" />
       <img id="img2" />
+      <p id="error"></p>
     </div>
     <script>
       function getFile() {
@@ -33,11 +34,13 @@
         if (urlExists(URL)) {
           var logo = document.getElementById('img1');
           logo.src = URL;
-        } else {
+        } else if (urlExists('matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png')){
           var logo1 = document.getElementById('img1');
           logo1.src = 'matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png';
           var logo2 = document.getElementById('img2');
           logo2.src = 'matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._2.png';
+        } else {
+          document.getElementById('error').innerHTML = '😞 Não encontrei nenhum exercício, tens a certeza do que escreveste?';
         }
       }
 
