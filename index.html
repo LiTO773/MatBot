@@ -37,11 +37,11 @@
           var logo = document.getElementById('img1');
           logo.src = URL;
           document.getElementById('error').innerHTML = '';
-        } else if (urlExists('matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png')){
+        } else if (urlExists(location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png')){
           var logo1 = document.getElementById('img1');
-          logo1.src = 'matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png';
+          logo1.src = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png';
           var logo2 = document.getElementById('img2');
-          logo2.src = 'matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._2.png';
+          logo2.src = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._2.png';
           document.getElementById('error').innerHTML = '';
         } else {
           document.getElementById('img1').src = ''
