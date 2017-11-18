@@ -17,6 +17,9 @@
       <input name="exercicio" id="exercicio" type="number" placeholder="Exercício + Alínea">
     </form>
     <button onclick="getFile()">Buscar</button>
+
+    <img id="img1" />
+    <img id="img2" />
     <script>
       function getFile() {
         var manual = document.getElementById("manual").value;
@@ -30,9 +33,9 @@
           logo.src = URL;
         } else {
           var logo1 = document.getElementById('img1');
-          logo1.src = 'http://matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png';
+          logo1.src = 'matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png';
           var logo2 = document.getElementById('img2');
-          logo2.src = 'http://matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._2.png';
+          logo2.src = 'matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._2.png';
         }
       }
 
