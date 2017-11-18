@@ -18,14 +18,16 @@
     </form>
     <button onclick="getFile()">Buscar</button>
 
-    <img id="img1" />
-    <img id="img2" />
+    <div>
+      <img id="img1" />
+      <img id="img2" />
+    </div>
     <script>
       function getFile() {
         var manual = document.getElementById("manual").value;
         var pagina = document.getElementById("pagina").value;
         var exercicio = document.getElementById("exercicio").value;
-        var URL = 'http://matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '..png';
+        var URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '..png';
 
         // Busca a imagem
         if (urlExists(URL)) {
