@@ -41,6 +41,11 @@ input {
   font-family: 'Raleway', sans-serif;
 }
 
+img {
+  display: block;
+  margin-top: 0px;
+}
+
 button {
   border: 0;
   background: #18A999;
