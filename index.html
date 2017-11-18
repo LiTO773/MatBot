@@ -8,20 +8,20 @@
     <h1>MatBot.</h1>
     <p>Escolhe aqui a solução que precisas</p>
     <form name="exercicio">
-      <select name="manual">
+      <select name="manual" id="manual">
         <option value="1">Combinatória e Probabilidades</option>
         <option value="2">Funções</option>
         <option value="3">Complexos e Primitivas</option>
       </select>
-      <input name="pagina" type="number" placeholder="Página" />
-      <input name="exercicio" type="number" placeholder="Exercício + Alínea">
+      <input name="pagina" id="pagina" type="number" placeholder="Página" />
+      <input name="exercicio" id="exercicio" type="number" placeholder="Exercício + Alínea">
     </form>
     <button onclick="getFile()">Buscar</button>
     <script>
       function getFile() {
-        var manual = exercicio.manual.value;
-        var pagina = exercicio.pagina.value;
-        var exercicio = exercicio.exercicio.value;
+        var manual = document.getElementById("manual").value;
+        var pagina = document.getElementById("pagina").value;
+        var exercicio = document.getElementById("exercicio").value;
         var URL = 'http://matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '..png';
 
         // Busca a imagem
