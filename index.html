@@ -43,7 +43,9 @@
           logo2.src = 'matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._2.png';
           document.getElementById('error').innerHTML = '';
         } else {
-          document.getElementById('error').innerHTML = '😞 Não encontrei nenhum exercício, tens a certeza do que escreveste?';
+          document.getElementById('img1').src = ''
+          document.getElementById('img2').src = ''
+          document.getElementById('error').innerHTML = 'Não encontrei nenhum exercício, tens a certeza do que escreveste? 😞 ';
         }
       }
 
