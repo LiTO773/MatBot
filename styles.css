@@ -41,9 +41,8 @@ input {
   font-family: 'Raleway', sans-serif;
 }
 
-img {
-  display: block;
-  margin-top: 0px;
+table {
+  border: 0;
 }
 
 button {
