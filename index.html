@@ -6,30 +6,30 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>MatBot.</h1>
-    <p>Escolhe aqui a solução que precisas 👻</p>
-    <form name="exercicio">
-      <select name="manual" id="manual">
+    <div class="wrap">
+      <h1>MatBot.</h1>
+      <p>Escolhe aqui a solução que precisas 👻</p>
+      <select name="manual" class="params" id="manual">
         <option value="1">Combinatória e Probabilidades</option>
         <option value="2">Funções</option>
         <option value="3">Complexos e Primitivas</option>
       </select>
-      <input name="pagina" id="pagina" type="number" placeholder="Página" />
-      <input name="exercicio" id="exercicio" type="number" placeholder="Exercício + Alínea">
-    </form>
-    <button onclick="getFile()">Buscar</button>
-    <br />
-    <br />
-    <div>
-      <table>
-        <tr>
-          <td><img id="img1" /></td>
-        </tr>
-        <tr>
-          <td><img id="img2" /></td>
-        </tr>
-      </table>
-      <p id="error"></p>
+      <input name="pagina" class="params" id="pagina" type="number" placeholder="Página" />
+      <input name="exercicio" class="params" id="exercicio" type="number" placeholder="Exercício + Alínea">
+      <button onclick="getFile()">Buscar</button>
+      <br />
+      <br />
+      <div>
+        <table>
+          <tr>
+            <td><img id="img1" /></td>
+          </tr>
+          <tr>
+            <td><img id="img2" /></td>
+          </tr>
+        </table>
+        <p id="error"></p>
+      </div>
     </div>
     <script>
       function getFile() {
