@@ -27,6 +27,7 @@ body {
   p {
     font-size: 2.5rem !important;
   }
+
   select {
     width: 95% !important;
     height: 7rem !important;
@@ -46,6 +47,15 @@ body {
     height: 7rem !important;
     font-size: 2.5rem !important;
     margin-bottom: 2rem !important;
+  }
+
+  tr {
+    width: 100%;
+    height: 100px;
+  }
+
+  img {
+      width: 95%;
   }
 }
 
@@ -88,7 +98,6 @@ select {
   background-color: transparent;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
-  margin-bottom: 5px;
 }
 
 input {
@@ -101,7 +110,6 @@ input {
   background-color: transparent;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
-  margin-bottom: 5px;
 }
 
 table {
@@ -110,7 +118,10 @@ table {
 }
 
 button {
+  margin-top: 5px;
+  width: 150px;
   border: 0;
+  border-radius: 30px;
   background: #18A999;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: #fff;
@@ -118,6 +129,10 @@ button {
   font-family: 'Roboto', sans-serif;
   padding: 10px;
   text-transform: uppercase;
+}
+
+img {
+
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
