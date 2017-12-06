@@ -9,11 +9,13 @@
     <div class="wrap">
       <h1>MatBot.</h1>
       <p>Escolhe aqui a solução que precisas 👻</p>
-      <select name="manual" class="params" id="manual">
-        <option value="1">Combinatória e Probabilidades</option>
-        <option value="2">Funções</option>
-        <option value="3">Complexos e Primitivas</option>
-      </select>
+      <form onKeyPress="return getPic(event)">
+        <select name="manual" class="params" id="manual">
+          <option value="1">Combinatória e Probabilidades</option>
+          <option value="2">Funções</option>
+          <option value="3">Complexos e Primitivas</option>
+        </select>
+      </form>
       <input name="pagina" class="params" id="pagina" type="number" placeholder="Página" />
       <input name="exercicio" class="params" id="exercicio" type="number" placeholder="Exercício + Alínea">
       <button onclick="getFile()">Buscar</button>
@@ -41,6 +43,12 @@
       gtag('config', 'UA-110796629-1');
     </script>
     <script>
+      function getPic() {
+        if(e && e.keyCode == 13) {
+          getFile();
+        }
+      }
+
       function getFile() {
         var manual = document.getElementById("manual").value;
         var pagina = document.getElementById("pagina").value;

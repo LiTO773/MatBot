@@ -131,10 +131,6 @@ button {
   text-transform: uppercase;
 }
 
-img {
-
-}
-
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
   color:    #000;
 }
