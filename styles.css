@@ -49,8 +49,7 @@ body {
     margin-bottom: 2rem !important;
   }
 
-  tr {
-    width: 100%;
+  table {
     height: 100px;
   }
 
