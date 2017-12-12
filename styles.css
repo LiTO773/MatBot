@@ -9,6 +9,11 @@ body {
 @media only screen and (max-width: 1000px) {
   body {
     margin: 0;
+    background: #fff !important;
+  }
+
+  .fork {
+    width: 230px;
   }
 
   .wrap {
