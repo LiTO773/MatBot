@@ -1,4 +1,4 @@
-<html>
+ <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
@@ -19,8 +19,8 @@
           <option value="3">Complexos e Primitivas</option>
         </select>
       </form>
-      <input name="pagina" class="params" id="pagina" type="number" placeholder="Página" />
-      <input name="exercicio" class="params" id="exercicio" type="number" placeholder="Exercício + Alínea">
+      <input name="pagina" class="params" id="pagina" type="number" placeholder="Página" required/>
+      <input name="exercicio" class="params" id="exercicio" type="number" placeholder="Exercício + Alínea" required/>
       <button onclick="getFile()">Buscar</button>
       <br />
       <br />
@@ -46,6 +46,17 @@
       gtag('config', 'UA-110796629-1');
     </script>
     <script>
+	 var exercicio = document.getElementById("exercicio");
+	 exercicio.addEventListener("keydown", function (e) {
+		 if (e.keyCode === 13) {
+			 validate(e);
+		 }
+	 });
+		
+	 function validate(e){
+		  getFile();
+	 }
+		
       function getFile() {
         var manual = document.getElementById("manual").value;
         var pagina = document.getElementById("pagina").value;
