@@ -3,6 +3,7 @@
 body {
   background: linear-gradient(180deg,#66a5ff,#0069ff);
   font-family: 'Roboto', sans-serif;
+  height: 100%;
 }
 
 /* Smartphones (portrait and landscape) ----------- */

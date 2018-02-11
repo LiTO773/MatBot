@@ -19,8 +19,8 @@
           <option value="3">Complexos e Primitivas</option>
         </select>
       </form>
-      <input name="pagina" class="params" id="pagina" type="number" placeholder="Página" required/>
-      <input name="exercicio" class="params" id="exercicio" type="number" placeholder="Exercício + Alínea" required/>
+      <input name="pagina" class="params" id="pagina" placeholder="Página" required/>
+      <input name="exercicio" class="params" id="exercicio" placeholder="Exercício + Alínea" required/>
       <button onclick="getFile()">Buscar</button>
       <br />
       <br />
@@ -46,47 +46,58 @@
       gtag('config', 'UA-110796629-1');
     </script>
     <script>
-	 var exercicio = document.getElementById("exercicio");
-	 exercicio.addEventListener("keydown", function (e) {
-		 if (e.keyCode === 13) {
-			 validate(e);
-		 }
-	 });
-		
-	 function validate(e){
-		  getFile();
-	 }
-		
+      var exercicio = document.getElementById("exercicio");
+      exercicio.addEventListener("keydown", function (e) {
+        if (e.keyCode === 13) {
+          getFile();
+        }
+      });
+
       function getFile() {
         var manual = document.getElementById("manual").value;
         var pagina = document.getElementById("pagina").value;
         var exercicio = document.getElementById("exercicio").value;
-        var URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '..png';
 
-        // Busca a imagem
-        if (urlExists(URL)) {
+        var URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '..png';
+        var ALT_URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio;
+
+        // Requests image
+        request(URL, function () {
           var logo = document.getElementById('img1');
           logo.src = URL;
           document.getElementById('img2').src = ''
           document.getElementById('error').innerHTML = '';
-        } else if (urlExists(location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png')){
+        });
+
+        request(ALT_URL, function () {
           var logo1 = document.getElementById('img1');
-          logo1.src = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png';
+          logo1.src = ALT_URL + '._1.png';
           var logo2 = document.getElementById('img2');
-          logo2.src = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._2.png';
+          logo2.src = ALT_URL + '._2.png';
           document.getElementById('error').innerHTML = '';
-        } else {
-          document.getElementById('img1').src = ''
-          document.getElementById('img2').src = ''
-          document.getElementById('error').innerHTML = 'Não encontrei nenhum exercício, tens a certeza do que escreveste? 😞 ';
-        }
+        })
       }
 
-      function urlExists(url) {
-        var http = new XMLHttpRequest();
-        http.open('HEAD', url, false);
-        http.send();
-        return http.status!=404;
+      function request(url, todo) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", URL, true);
+        xhr.onload = function (e) {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              todo();
+            } else {
+              // Loading
+              document.getElementById('error').innerHTML = 'Carregando...';
+            }
+          }
+        };
+        xhr.onerror = function (e) {
+          // Error msg
+          document.getElementById('img1').src = '';
+          document.getElementById('img2').src = '';
+          document.getElementById('error').innerHTML = 'Não encontrei nenhum exercício, tens a certeza do que escreveste? 😞 ';
+        };
+        xhr.send(null);
       }
     </script>
   </body>
