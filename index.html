@@ -71,7 +71,7 @@
           document.getElementById('error').innerHTML = '';
         });
 
-        request(ALT_URL, function () {
+        request(ALT_URL + '._1.png', function () {
           if (logo1.src === '') {
             var logo1 = document.getElementById('img1');
             logo1.src = ALT_URL + '._1.png';
