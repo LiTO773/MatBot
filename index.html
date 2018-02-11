@@ -72,8 +72,8 @@
         });
 
         request(ALT_URL + '._1.png', function () {
+          var logo1 = document.getElementById('img1');
           if (logo1.src === '') {
-            var logo1 = document.getElementById('img1');
             logo1.src = ALT_URL + '._1.png';
             var logo2 = document.getElementById('img2');
             logo2.src = ALT_URL + '._2.png';
