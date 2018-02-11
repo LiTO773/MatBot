@@ -58,9 +58,9 @@
         var pagina = document.getElementById("pagina").value;
         var exercicio = document.getElementById("exercicio").value;
 
-        var URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '..png';
+        var URL = '/' + manual + '/' + pagina + '/' + exercicio + '..png';
         console.log(URL);
-        var ALT_URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio;
+        var ALT_URL = '/' + manual + '/' + pagina + '/' + exercicio;
         console.log(ALT_URL);
 
         // Requests image
@@ -84,26 +84,23 @@
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url, true);
         xhr.onload = function (e) {
-          console.log('Load');
-          console.log(xhr.readyState);
-          console.log(xhr.status);
-          if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              todo();
-            } else {
-              // Loading
-              document.getElementById('error').innerHTML = 'Carregando...';
-            }
+          if (xhr.status === 200) {
+            todo();
+          } else {
+            error();
           }
         };
         xhr.onerror = function (e) {
-          console.log('Error');
-          // Error msg
-          document.getElementById('img1').src = '';
-          document.getElementById('img2').src = '';
-          document.getElementById('error').innerHTML = 'Não encontrei nenhum exercício, tens a certeza do que escreveste? 😞 ';
+          error();
         };
         xhr.send(null);
+      }
+
+      function error() {
+        // Error msg
+        document.getElementById('img1').src = '';
+        document.getElementById('img2').src = '';
+        document.getElementById('error').innerHTML = 'Não encontrei nenhum exercício, tens a certeza do que escreveste? 😞 ';
       }
     </script>
   </body>
