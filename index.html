@@ -64,7 +64,7 @@
         console.log(ALT_URL);
 
         // Requests image
-        request(URL, function (URL) {
+        request(URL, function () {
           var logo = document.getElementById('img1');
           logo.src = URL;
           document.getElementById('img2').src = ''
@@ -82,7 +82,7 @@
 
       function request(url, todo) {
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", URL, true);
+        xhr.open("GET", url, true);
         xhr.onload = function (e) {
           console.log('Load');
           console.log(xhr.readyState);
