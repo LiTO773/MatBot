@@ -59,9 +59,7 @@
         var exercicio = document.getElementById("exercicio").value;
 
         var URL = '/' + manual + '/' + pagina + '/' + exercicio + '..png';
-        console.log(URL);
         var ALT_URL = '/' + manual + '/' + pagina + '/' + exercicio;
-        console.log(ALT_URL);
 
         // Requests image
         request(URL, function () {
@@ -84,6 +82,7 @@
 
       function request(url, todo) {
         var xhr = new XMLHttpRequest();
+        console.log(url);
         xhr.open("GET", url, true);
         xhr.onload = function (e) {
           if (xhr.status === 200) {
