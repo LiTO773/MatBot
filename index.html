@@ -59,7 +59,9 @@
         var exercicio = document.getElementById("exercicio").value;
 
         var URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '..png';
+        console.log(URL);
         var ALT_URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio;
+        console.log(ALT_URL);
 
         // Requests image
         request(URL, function () {
@@ -69,19 +71,22 @@
           document.getElementById('error').innerHTML = '';
         });
 
-        request(ALT_URL, function () {
-          var logo1 = document.getElementById('img1');
-          logo1.src = ALT_URL + '._1.png';
-          var logo2 = document.getElementById('img2');
-          logo2.src = ALT_URL + '._2.png';
-          document.getElementById('error').innerHTML = '';
-        })
+        // request(ALT_URL, function () {
+        //   var logo1 = document.getElementById('img1');
+        //   logo1.src = ALT_URL + '._1.png';
+        //   var logo2 = document.getElementById('img2');
+        //   logo2.src = ALT_URL + '._2.png';
+        //   document.getElementById('error').innerHTML = '';
+        // })
       }
 
       function request(url, todo) {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", URL, true);
         xhr.onload = function (e) {
+          console.log('Load');
+          console.log(xhr.readyState);
+          console.log(xhr.status);
           if (xhr.readyState === 4) {
             if (xhr.status === 200) {
               todo();
@@ -92,6 +97,7 @@
           }
         };
         xhr.onerror = function (e) {
+          console.log('Error');
           // Error msg
           document.getElementById('img1').src = '';
           document.getElementById('img2').src = '';
