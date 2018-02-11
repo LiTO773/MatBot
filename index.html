@@ -64,7 +64,7 @@
         console.log(ALT_URL);
 
         // Requests image
-        request(URL, function () {
+        request(URL, function (URL) {
           var logo = document.getElementById('img1');
           logo.src = URL;
           document.getElementById('img2').src = ''
