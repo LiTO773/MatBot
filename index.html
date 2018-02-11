@@ -19,8 +19,8 @@
           <option value="3">Complexos e Primitivas</option>
         </select>
       </form>
-      <input name="pagina" class="params" id="pagina" placeholder="Página" required/>
-      <input name="exercicio" class="params" id="exercicio" placeholder="Exercício + Alínea" required/>
+      <input name="pagina" type="number" class="params" id="pagina" placeholder="Página" required/>
+      <input name="exercicio" type="number" class="params" id="exercicio" placeholder="Exercício + Alínea" required/>
       <button onclick="getFile()">Buscar</button>
       <br />
       <br />
@@ -71,13 +71,15 @@
           document.getElementById('error').innerHTML = '';
         });
 
-        // request(ALT_URL, function () {
-        //   var logo1 = document.getElementById('img1');
-        //   logo1.src = ALT_URL + '._1.png';
-        //   var logo2 = document.getElementById('img2');
-        //   logo2.src = ALT_URL + '._2.png';
-        //   document.getElementById('error').innerHTML = '';
-        // })
+        request(ALT_URL, function () {
+          if (logo1.src === '') {
+            var logo1 = document.getElementById('img1');
+            logo1.src = ALT_URL + '._1.png';
+            var logo2 = document.getElementById('img2');
+            logo2.src = ALT_URL + '._2.png';
+            document.getElementById('error').innerHTML = '';
+          }
+        })
       }
 
       function request(url, todo) {
