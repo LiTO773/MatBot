@@ -62,6 +62,7 @@
         var pagina = document.getElementById("pagina").value;
         var exercicio = document.getElementById("exercicio").value;
         var URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '..png';
+        var URLALT = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '.png';
 
         // Busca a imagem
         if (urlExists(URL)) {
@@ -74,6 +75,11 @@
           logo1.src = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png';
           var logo2 = document.getElementById('img2');
           logo2.src = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._2.png';
+          document.getElementById('error').innerHTML = '';
+        } else if (urlExists(URLALT)) {
+          var logo = document.getElementById('img1');
+          logo.src = URLALT;
+          document.getElementById('img2').src = ''
           document.getElementById('error').innerHTML = '';
         } else {
           document.getElementById('img1').src = ''

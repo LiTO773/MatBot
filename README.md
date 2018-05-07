@@ -8,7 +8,7 @@ Todas as imagens das resoluções dos exercícios são guardadas neste repositó
 2. Funções
 3. Complexos e Primitivas
 
-O nome de todas as imagens segue o seguinte padrão: `exercicio.alinea..png`.
+O nome de todas as imagens segue o seguinte padrão: `exercicio.alinea..png` (com algumas exceções).
 
 ## English
 MatBot is a small static website in which the user can access a step-by-step solution of most of the exercises in the math class-book "Máximo 12".
@@ -19,4 +19,4 @@ Every solution is stored in an image on this repository and it's divided by it's
 2. Funções
 3. Complexos e Primitivas
 
-Every image is named after this format: `exercise.item..png`.
+Every image is named after this format: `exercise.item..png` (with a few exceptions).
