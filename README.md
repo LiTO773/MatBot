@@ -18,10 +18,6 @@ Abre o ficheiro index.html e pesquisa a solução para o exercício que precisas
 
 * **Luís Pinto** - [LiTO773](https://github.com/LiTO773)
 
-### Licença
-
-Este projeto está protegido segundo a Licença Beerware
-
 ## English (Inglês)
 MatBot is a small static website in which the user can access a step-by-step solution of most of the exercises in the math class-book "Máximo 12".
 
@@ -40,9 +36,5 @@ Just open the index.html file and search for the solutions of the exercices that
 ### Author
 
 * **Luís Pinto** - [LiTO773](https://github.com/LiTO773)
-
-### License
-
-This project is licensed under the Beerware License
 
 
