@@ -1,0 +1,101 @@
+<html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+      <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+      <title>MatBot</title>
+      <link rel="stylesheet" href="styles.css">
+      <script src="button.js"></script>
+    </head>
+    <body>
+      <a href="https://github.com/LiTO773/MatBot">
+        <img class="fork" style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+      </a>
+      <a href="index.html" style="text-decoration: none;"><button style="display: block; margin-left: 5px;cursor: pointer;">Português</button></a>
+      <div class="wrap">
+        <h1>MatBot.</h1>
+        <p>Choose the solution that you need 👻</p>
+        <form>
+          <select name="manual" class="params" id="manual">
+            <option value="1">Combinatorics and Probability</option>
+            <option value="2">Functions</option>
+            <option value="3">Complexes and Primitives</option>
+          </select>
+        </form>
+        <input name="pagina" class="params" id="pagina" type="number" placeholder="Page" required/>
+        <input name="exercicio" class="params" id="exercicio" type="number" placeholder="Exercice + Point" required/>
+        <button onclick="getFile()" style="cursor: pointer;">Search</button>
+        <br />
+        <br />
+        <div>
+          <table>
+            <tr>
+              <td><img id="img1" /></td>
+            </tr>
+            <tr>
+              <td><img id="img2" /></td>
+            </tr>
+          </table>
+          <p id="error"></p>
+        </div>
+      </div>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110796629-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+  
+        gtag('config', 'UA-110796629-1');
+      </script>
+      <script>
+       var exercicio = document.getElementById("exercicio");
+       exercicio.addEventListener("keydown", function (e) {
+           if (e.keyCode === 13) {
+               validate(e);
+           }
+       });
+          
+       function validate(e){
+            getFile();
+       }
+          
+        function getFile() {
+          var manual = document.getElementById("manual").value;
+          var pagina = document.getElementById("pagina").value;
+          var exercicio = document.getElementById("exercicio").value;
+          var URL = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '..png';
+          var URLALT = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '.png';
+  
+          // Busca a imagem
+          if (urlExists(URL)) {
+            var logo = document.getElementById('img1');
+            logo.src = URL;
+            document.getElementById('img2').src = ''
+            document.getElementById('error').innerHTML = '';
+          } else if (urlExists(location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png')){
+            var logo1 = document.getElementById('img1');
+            logo1.src = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._1.png';
+            var logo2 = document.getElementById('img2');
+            logo2.src = location.protocol + '//matbot.netlify.com/' + manual + '/' + pagina + '/' + exercicio + '._2.png';
+            document.getElementById('error').innerHTML = '';
+          } else if (urlExists(URLALT)) {
+            var logo = document.getElementById('img1');
+            logo.src = URLALT;
+            document.getElementById('img2').src = ''
+            document.getElementById('error').innerHTML = '';
+          } else {
+            document.getElementById('img1').src = ''
+            document.getElementById('img2').src = ''
+            document.getElementById('error').innerHTML = 'Não encontrei nenhum exercício, tens a certeza do que escreveste? 😞 ';
+          }
+        }
+  
+        function urlExists(url) {
+          var http = new XMLHttpRequest();
+          http.open('HEAD', url, false);
+          http.send();
+          return http.status!=404;
+        }
+      </script>
+    </body>
+  </html>
