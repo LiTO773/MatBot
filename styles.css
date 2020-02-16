@@ -75,6 +75,7 @@ body {
 .params {
   display: block;
   margin: auto;
+  padding: 0 10px ;
 }
 
 * {
